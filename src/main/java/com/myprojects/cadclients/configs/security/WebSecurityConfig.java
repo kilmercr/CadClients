@@ -22,7 +22,11 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers("/", "/h2-console/**").permitAll()
+                .antMatchers("/", "/js/**",
+                        "/css/**",
+                        "/img/**",
+                        "/h2-console/**")
+                .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
