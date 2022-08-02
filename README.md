@@ -28,15 +28,15 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Buscar todos os clientes
         - Método HTTP: GET
-        - URL: localhost:8080/clients
+        - URL: localhost:8080/CadClient/rest/clients
 
     * Buscar determinado cliente
         - Método HTTP: GET
-        - URL: localhost:8080/clients/{id do cliente}
+        - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
 
     * Salvar determinado cliente
         - Método HTTP: POST
-        - URL: localhost:8080/clients
+        - URL: localhost:8080/CadClient/rest/clients
         - Body: 
             {
                 "cpf": "012.345.678-90",
@@ -50,7 +50,7 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Atualizar determinado cliente
         - Método HTTP: PUT
-        - URL: localhost:8080/clients/{id do cliente}
+        - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
         - Body: 
             {
                 "cpf": "012.345.678-90",
@@ -64,5 +64,5 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Deletar determinado cliente
         - Método HTTP: Delete
-        - URL: localhost:8080/clients/{id do cliente}
+        - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
 
