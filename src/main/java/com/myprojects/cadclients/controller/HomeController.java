@@ -1,6 +1,5 @@
 package com.myprojects.cadclients.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +16,15 @@ public class HomeController {
 
     private final ClientService clientService;
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping
     public ModelAndView index() {
         ModelAndView model = new ModelAndView("index");
+        return model;
+    }
+
+    @GetMapping("/login")
+    public ModelAndView login() {
+        ModelAndView model = new ModelAndView("login");
         return model;
     }
 

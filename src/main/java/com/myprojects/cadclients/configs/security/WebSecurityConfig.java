@@ -18,11 +18,15 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/", "/h2-console/**").permitAll()
                 // .antMatchers(HttpMethod.GET, "/parking-spot/**").permitAll()
                 // .antMatchers(HttpMethod.POST, "/parking-spot").hasRole("USER")
                 // .antMatchers(HttpMethod.DELETE, "/parking-spot/**").hasRole("ADMIN")
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll();
 
         http.csrf().disable();
         http.headers().frameOptions().disable();
