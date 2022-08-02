@@ -22,15 +22,16 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers("/", "/js/**",
+                .antMatchers("/", "/cadclient", "/js/**",
                         "/css/**",
                         "/img/**",
+                        "/fonts/**",
                         "/h2-console/**")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/")
                 .permitAll();
 
         return http.build();

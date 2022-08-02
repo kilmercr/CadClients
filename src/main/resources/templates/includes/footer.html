@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
+  <title>Cadastro de Clientes</title>
+  <meta name="description" content="CadClients">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <footer class="footer" th:fragment="footer">
+    <div class="container">
+      <div class="text-center">
+        Copyright © 2022 - <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> - KCS
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

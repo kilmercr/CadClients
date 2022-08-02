@@ -21,14 +21,26 @@
                     <div class="card-title text-uppercase text-center py-3">Realizar Login</div>
                     <form>
                         <div class="form-group">
-                            <label for="inputLogin" class="sr-only">Login</label>
-                            <input type="text" id="inputLogin" class="form-control" placeholder="Entre com seu login">
+                            <label for="inputLogin">Login</label>
+                            <div class="position-relative has-icon-right">
+                                <input type="text" id="inputLogin" class="form-control" placeholder="Enter Username">
+                                <div class="form-control-position">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="inputSenha" class="sr-only">Senha</label>
-                            <input type="password" id="inputSenha" class="form-control"
-                                placeholder="Entre com a sua senha">
+                            <label for="inputSenha">Senha</label>
+                            <div class="position-relative has-icon-right">
+                                <input type="password" id="inputSenha" class="form-control"
+                                    placeholder="Entre com a sua senha">
+                                <div class="form-control-position">
+                                    <i class="icon-lock"></i>
+                                </div>
+                            </div>
                         </div>
+
                         <button type="button" class="btn btn-light btn-block mt-3">Entrar</button>
 
                     </form>
@@ -43,7 +55,5 @@
     <div th:replace="/includes/scripts :: scripts"></div>
 
 </body>
-
-<!-- JavaScript -->
 
 </html>

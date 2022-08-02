@@ -16,15 +16,15 @@ public class HomeController {
 
     private final ClientService clientService;
 
-    @GetMapping
+    @GetMapping(value = { "/login", "/index", "/" })
     public ModelAndView index() {
         ModelAndView model = new ModelAndView("index");
         return model;
     }
 
-    @GetMapping("/login")
-    public ModelAndView login() {
-        ModelAndView model = new ModelAndView("login");
+    @GetMapping("/cadclient")
+    public ModelAndView cadastroClient() {
+        ModelAndView model = new ModelAndView("cadclient");
         return model;
     }
 

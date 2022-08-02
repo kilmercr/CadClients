@@ -16,6 +16,23 @@ label {
     margin-bottom: 0.5rem;
 }
 
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.content-wrapper {
+    padding-top: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 70px;
+    overflow-x: hidden;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
 .lnkCursor {
     cursor: pointer;
 }
@@ -79,6 +96,25 @@ label {
     height: 3.5rem;
     line-height: 3.5rem;
     text-align: center;
+}
+
+.has-icon-left .form-control {
+    padding-right: .85rem;
+    padding-left: 2.9rem;
+}
+
+.has-icon-left .form-control-position {
+    right: auto;
+    left: 0px;
+}
+
+.has-icon-right .form-control-position {
+    right: 0px;
+    left: auto;
+}
+
+.has-icon-right .form-control {
+    padding-right: 37px;
 }
 
 .bg-theme {
@@ -146,6 +182,14 @@ body.bg-theme1 {
     width: 100%;
 }
 
+.btn-round {
+    border-radius: 30px !important;
+}
+
+.btn-square {
+    border-radius: 0px !important;
+}
+
 ::placeholder {
     color: #fff !important;
     font-size: 13px;
@@ -161,4 +205,24 @@ body.bg-theme1 {
 ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #fff !important;
+}
+
+.footer {
+    bottom: 0px;
+    color: rgba(255, 255, 255, 0.73);
+    text-align: center;
+    padding: 12px 30px;
+    position: absolute;
+    right: 0;
+    left: 0px;
+    background-color: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.table-responsive {
+    white-space: nowrap;
 }
