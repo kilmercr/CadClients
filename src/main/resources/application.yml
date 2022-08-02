@@ -5,6 +5,13 @@ server:
 spring:
   thymeleaf:
     cache: false
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
   datasource:
     url: jdbc:h2:mem:mydb;MODE=MySQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE
     username: dbuser

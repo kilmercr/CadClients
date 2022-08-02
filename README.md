@@ -1,17 +1,22 @@
-# Getting Started
+# Iniciando
 
 Projeto simples para cadastro de clientes em um banco de dados em memória.
 
+## Tecnologias e referencias de documentação
 Este projeto utiliza as seguintes tecnologias:
-    - Java 11
-    - Lombok
-    - Spring Boot
-    - Spring Data JPA
-    - Spring Security
-    - Spring Validator
-    - H2 Database
-    - Flyway
-    - Thymeleaf (front-end)
+
+* [Java 11](https://www.oracle.com/br/java/)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.2/maven-plugin/reference/html/)
+* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#web)
+* [Spring Security](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#web.security)
+* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#data.sql.jpa-and-spring-data)
+* [Flyway Migration](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#howto.data-initialization.migration-tool.flyway)
+* [Validation](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#io.validation)
+* [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#web.servlet.spring-mvc.template-engines)
+* [Lombok](https://projectlombok.org/)
+* [H2 Database](https://www.h2database.com/html/main.html)
+
+## Informações para execução da aplicação
 
 - Usuários:
     * Login: admin, Senha: admin123
@@ -38,6 +43,7 @@ Este projeto utiliza as seguintes tecnologias:
         - Método HTTP: POST
         - URL: localhost:8080/CadClient/rest/clients
         - Body: 
+        ```bash
             {
                 "cpf": "012.345.678-90",
                 "name": "Cliente1",
@@ -47,11 +53,13 @@ Este projeto utiliza as seguintes tecnologias:
                 "nacionality" : "Brasileiro",
                 "dtBirthday" : "01/08/2022"
             }
+        ```
 
     * Atualizar determinado cliente
         - Método HTTP: PUT
         - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
         - Body: 
+        ```bash
             {
                 "cpf": "012.345.678-90",
                 "name": "Cliente no. 1",
@@ -61,6 +69,7 @@ Este projeto utiliza as seguintes tecnologias:
                 "nacionality" : "Brasileiro",
                 "dtBirthday" : "01/07/2022"
             }
+        ```
 
     * Deletar determinado cliente
         - Método HTTP: Delete
