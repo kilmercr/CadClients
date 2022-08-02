@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb;MODE=MySQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE
+    username: dbuser
+    password: dbuser
+    driverClassName: org.h2.Driver
+  flyway:
+    fail-on-missing-locations: false
+    locations: classpath:/db/migration
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        trace: false
+        web-allow-others: false
