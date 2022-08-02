@@ -32,12 +32,10 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Buscar determinado cliente
         - Método HTTP: GET
-        - Usar Basic Auth passando um dos 2 usuários citados acima.
         - URL: localhost:8080/clients/{id do cliente}
 
     * Salvar determinado cliente
         - Método HTTP: POST
-        - Usar Basic Auth passando um dos 2 usuários citados acima.
         - URL: localhost:8080/clients
         - Body: 
             {
@@ -52,7 +50,6 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Atualizar determinado cliente
         - Método HTTP: PUT
-        - Usar Basic Auth passando um dos 2 usuários citados acima.
         - URL: localhost:8080/clients/{id do cliente}
         - Body: 
             {
@@ -67,6 +64,5 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Deletar determinado cliente
         - Método HTTP: Delete
-        - Usar Basic Auth passando um dos 2 usuários citados acima.
         - URL: localhost:8080/clients/{id do cliente}
 
