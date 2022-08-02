@@ -1,6 +1,6 @@
 # Getting Started
 
-** Projeto simples para cadastro de clientes em um banco de dados em memória.
+Projeto simples para cadastro de clientes em um banco de dados em memória.
 
 Este projeto utiliza as seguintes tecnologias:
     - Java 11
