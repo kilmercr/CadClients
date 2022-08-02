@@ -1,4 +1,4 @@
-package com.myprojects.cadclients.controller;
+package com.myprojects.cadclients.controller.rest;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -28,8 +28,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("rest/clients")
+public class ClientRestController {
 
     private final ClientService clientService;
 

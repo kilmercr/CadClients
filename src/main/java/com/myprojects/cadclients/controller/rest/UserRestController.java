@@ -1,4 +1,4 @@
-package com.myprojects.cadclients.controller;
+package com.myprojects.cadclients.controller.rest;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -15,12 +15,12 @@ import com.myprojects.cadclients.model.UserModel;
 import com.myprojects.cadclients.service.UserService;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("rest/users")
+public class UserRestController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    public UserRestController(UserService userService) {
         this.userService = userService;
     }
 
