@@ -22,7 +22,7 @@ label {
 }
 
 .content-wrapper {
-    padding-top: 70px;
+    padding-top: 40px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 70px;
@@ -48,6 +48,16 @@ label {
     background-color: rgba(0, 0, 0, .2);
 }
 
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+}
+
 .card-title {
     margin-bottom: .75rem;
     font-weight: 600;
@@ -63,6 +73,16 @@ label {
     padding: 0.75rem 1.25rem;
     background-color: rgba(0, 0, 0, 0);
     border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.card .table {
+    margin-bottom: 0px;
+}
+
+.card .table td,
+.card .table th {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .form-control {
@@ -127,6 +147,12 @@ label {
 
 body.bg-theme1 {
     background-image: url(../img/bg-theme/1.png);
+}
+
+.custom-select {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border: 0px solid #ced4da;
 }
 
 .btn {
@@ -223,6 +249,47 @@ body.bg-theme1 {
     transition: all 0.3s ease;
 }
 
+.table {
+    --bs-table-striped-color: rgba(255, 255, 255, .85) !important;
+    --bs-table-hover-color: rgba(255, 255, 255, .85) !important;
+    width: 100%;
+    color: rgba(255, 255, 255, .85);
+}
+
+.table td,
+.table th {
+    white-space: nowrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.table.align-items-center td,
+.table.align-items-center th {
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-size: .72rem;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+}
+
 .table-responsive {
     white-space: nowrap;
+}
+
+.table-bordered {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, .20);
+    color: rgba(255, 255, 255, .85);
 }

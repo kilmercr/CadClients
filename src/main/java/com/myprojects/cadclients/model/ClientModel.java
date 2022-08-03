@@ -15,8 +15,10 @@ import javax.persistence.Table;
 
 import com.myprojects.cadclients.enums.SexEnum;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 @Entity
 @Table(name = "TB_CLIENT")
