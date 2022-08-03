@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.myprojects.cadclients.enums.SexEnum;
 
@@ -48,5 +49,8 @@ public class ClientModel implements Serializable {
     private LocalDate dtBirthday;
     private LocalDateTime dtCreate;
     private LocalDateTime dtUpdate;
+
+    @Transient
+    private String cpfFormatado;
 
 }

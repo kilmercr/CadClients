@@ -18,6 +18,7 @@ import com.myprojects.cadclients.dtos.ClientDto;
 import com.myprojects.cadclients.enums.SexEnum;
 import com.myprojects.cadclients.model.ClientModel;
 import com.myprojects.cadclients.service.ClientService;
+import com.myprojects.cadclients.utils.StringUtils;
 
 import lombok.RequiredArgsConstructor;
 
@@ -38,11 +39,13 @@ public class HomeController {
         ModelAndView model = new ModelAndView("listarClientes");
 
         Collection<ClientModel> lstClient = clientService.findAll();
-        lstClient.add(ClientModel.builder().clientId(1L).cpf("01234567890").name("Client no. 1").sex(SexEnum.F)
+        lstClient.add(ClientModel.builder().clientId(1L).cpf("01234567890")
+                .cpfFormatado(StringUtils.formatCPF("01234567890")).name("Client no. 1").sex(SexEnum.F)
                 .email("client1@tst.com.br").naturality("Curitiba").nacionality("Brasil")
                 .dtBirthday(LocalDate.now(ZoneId.systemDefault()).minusYears(30L))
                 .dtCreate(LocalDateTime.now(ZoneId.systemDefault())).build());
-        lstClient.add(ClientModel.builder().clientId(2L).cpf("98765432109").name("Client no. 2").sex(SexEnum.M)
+        lstClient.add(ClientModel.builder().clientId(2L).cpf("98765432109")
+                .cpfFormatado(StringUtils.formatCPF("98765432109")).name("Client no. 2").sex(SexEnum.M)
                 .email("client2@tst.com.br").naturality("Curitiba").nacionality("Brasil")
                 .dtBirthday(LocalDate.now(ZoneId.systemDefault()).minusYears(20L))
                 .dtCreate(LocalDateTime.now(ZoneId.systemDefault()).minusDays(20L))

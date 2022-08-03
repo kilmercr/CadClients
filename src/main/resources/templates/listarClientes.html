@@ -47,7 +47,7 @@
                                             <tr th:each="client : ${lstClient}" class="text-center">
                                                 <td><span th:text="${client.clientId}"></span></td>
                                                 <td><span th:text="${client.name}"></span></td>
-                                                <td><span th:text="${client.cpf}"></span></td>
+                                                <td><span th:text="${client.cpfFormatado}"></span></td>
                                                 <td><span th:text="${client.sex.sex}"></span></td>
 
                                                 <td><span th:text="${client.email}"></span></td>
