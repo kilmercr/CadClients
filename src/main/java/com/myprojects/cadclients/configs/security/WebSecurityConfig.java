@@ -22,7 +22,9 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers("/", "/cadclient", "/js/**",
+                .antMatchers("/",
+                        "/listarClientes", "/cadastrarCliente", "/editarCliente",
+                        "/js/**",
                         "/css/**",
                         "/img/**",
                         "/fonts/**",

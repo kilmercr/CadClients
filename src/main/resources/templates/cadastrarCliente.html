@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/includes/head :: head">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
+    <title>Cadastro de Clientes</title>
+    <meta name="description" content="CadClients">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="bg-theme bg-theme1">
+    <div id="wrapper">
+        <div class="content-wrapper">
+
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Formulário para cadastro de cliente</div>
+                                <hr>
+                                <form>
+                                    <div class="form-group">
+                                        <input type="hidden" id="clientIdHidden">
+                                        <label for="inputNome">Name</label>
+                                        <input type="text" class="form-control form-control-rounded" id="inputNome"
+                                            required placeholder="Digite o nome">
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-7">
+                                            <label for="inputCpf">CPF</label>
+                                            <input type="text" class="form-control form-control-rounded" id="inputCpf"
+                                                required placeholder="Digite o CPF (Apenas números)"
+                                                th:onblur="'formatarCpf(this.value)'" maxlength="11"
+                                                pattern="[0-9]{11}">
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <label for="selectSexo">Sexo</label>
+                                            <select name="selectSexo" class="form-control form-control-rounded"
+                                                id="selectSexo">
+                                                <option id="optSexoM" value="M">Masculino</option>
+                                                <option id="optSexoF" value="F">Feminino</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label for="inputDtNascimento">Data de Nascimento</label>
+                                            <input type="date" class="form-control form-control-rounded"
+                                                id="inputDtNascimento" placeholder="Digite a data de nascimento">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6">
+                                            <label for="inputEmail">E-mail</label>
+                                            <input type="email" class="form-control form-control-rounded"
+                                                id="inputEmail" placeholder="Digite o endereço de E-mail">
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <label for="inputNaturality">Naturalidade</label>
+                                            <input type="text" class="form-control form-control-rounded"
+                                                id="inputNaturality" placeholder="Digite a naturalidade">
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <label for="inputNacionality">Nacionalidade</label>
+                                            <input type="text" class="form-control form-control-rounded"
+                                                id="inputNacionality" placeholder="Digite a nacionalidade">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-round mt-3 px-5"><i
+                                                class="icon-lock"></i> Registrar</button>
+                                        <button type="submit" class="btn btn-secondary btn-round mt-3 ml-3 px-5"
+                                            th:onclick="listarClientes()"><i class="icon-action-undo"></i>
+                                            Voltar</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div th:replace="/includes/footer :: footer"></div>
+        </div>
+    </div>
+    <div th:replace="/includes/scripts :: scripts"></div>
+</body>
+
+</html>

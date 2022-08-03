@@ -5,8 +5,8 @@ import java.util.Collection;
 
 public enum SexEnum {
 
-    M(1, "Male", "M"),
-    F(2, "Female", "F");
+    M(1, "Masculino", "M"),
+    F(2, "Feminino", "F");
 
     private final int id;
     private final String sex;

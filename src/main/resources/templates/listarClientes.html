@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/includes/head :: head">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
+    <title>Cadastro de Clientes</title>
+    <meta name="description" content="CadClients">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="bg-theme bg-theme1">
+    <div id="wrapper">
+        <div class="content-wrapper">
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tabela de clientes</h5>
+                                <div class="table-responsive">
+                                    <table aria-describedby="Tabela de Clientes" class="table table-hover table-striped"
+                                        id="tbClients">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nome</th>
+                                                <th>Cpf</th>
+                                                <th>Sexo</th>
+                                                <th>E-mail</th>
+                                                <th>Naturalidade</th>
+                                                <th>Nacionalidade</th>
+                                                <th>Data de Nascimento</th>
+                                                <th>Data de Registro</th>
+                                                <th>Data de Alteração</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:if="${lstClient.empty}">
+                                                <td colspan="8"> Nenhum cliente registrado! </td>
+                                            </tr>
+                                            <tr th:each="client : ${lstClient}" class="text-center">
+                                                <td><span th:text="${client.clientId}"></span></td>
+                                                <td><span th:text="${client.name}"></span></td>
+                                                <td><span th:text="${client.cpf}"></span></td>
+                                                <td><span th:text="${client.sex.sex}"></span></td>
+
+                                                <td><span th:text="${client.email}"></span></td>
+                                                <td><span th:text="${client.naturality}"></span></td>
+                                                <td><span th:text="${client.nacionality}"></span></td>
+                                                <td><span
+                                                        th:text="${#temporals.format(client.dtBirthday, 'dd/MM/yyyy')}"></span>
+                                                </td>
+                                                <td><span
+                                                        th:text="${#temporals.format(client.dtCreate, 'dd/MM/yyyy HH:mm:ss')}"></span>
+                                                </td>
+                                                <td><span th:if="${client.dtUpdate}"
+                                                        th:text="${#temporals.format(client.dtUpdate, 'dd/MM/yyyy HH:mm:ss')}"></span>
+                                                    <span th:unless="${client.dtUpdate}">-</span>
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-edit lnkCursor"
+                                                        th:onclick="editarCliente([[ ${client} ]])"></i>
+                                                    <i class="fa fa-trash-o lnkCursor"
+                                                        th:onclick="deletarCliente([[ ${client.clientId} ]])"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <button type="button" class="btn btn-light mt-3" th:onclick="criarCliente()">
+                                    Registrar Novo Cliente</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div th:replace="/includes/footer :: footer"></div>
+        </div>
+    </div>
+    <div th:replace="/includes/scripts :: scripts"></div>
+</body>
+
+</html>
