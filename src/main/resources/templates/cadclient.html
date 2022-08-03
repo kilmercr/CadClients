@@ -37,9 +37,8 @@
                                         <label for="selectSexo">Sexo</label>
                                         <select class="form-control custom-select" id="selectSexo" name="selectSexo"
                                             required>
-                                            <option id="optSexoM" value="M">Masculino</option>
-                                            <option id="optSexoF" value="F">Feminino</option>
-                                            <option id="optSexoI" value="I">Outro</option>
+                                            <option id="optSexoM" value="M">Male</option>
+                                            <option id="optSexoF" value="F">Female</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -48,19 +47,19 @@
                                             placeholder="Digite o endereço de E-mail">
                                     </div>
                                     <div class="form-group">
-                                        <label for="input-8">Mobile</label>
-                                        <input type="text" class="form-control form-control-rounded" id="input-8"
-                                            placeholder="Enter Your Mobile Number">
+                                        <label for="inputNatur">Naturalidade</label>
+                                        <input type="text" class="form-control form-control-rounded" id="inputNatur"
+                                            placeholder="Digite a naturalidade">
                                     </div>
                                     <div class="form-group">
-                                        <label for="input-9">Password</label>
-                                        <input type="text" class="form-control form-control-rounded" id="input-9"
-                                            placeholder="Enter Password">
+                                        <label for="inputNacio">Nacionalidade</label>
+                                        <input type="text" class="form-control form-control-rounded" id="inputNacio"
+                                            placeholder="Digite a nacionalidade">
                                     </div>
                                     <div class="form-group">
-                                        <label for="input-10">Confirm Password</label>
-                                        <input type="text" class="form-control form-control-rounded" id="input-10"
-                                            placeholder="Confirm Password">
+                                        <label for="inputDtNascim">Data de Nascimento</label>
+                                        <input type="text" class="form-control form-control-rounded" id="inputDtNascim"
+                                            placeholder="Digite a data de nascimento">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-light btn-round mt-3 px-5"><i
@@ -81,43 +80,37 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Tabela de clientes</h5>
-                                <div class="table-responsive" th:unless="${lstClient.empty}">
+                                <div class="table-responsive">
                                     <table aria-describedby="Tabela de Clientes"
                                         class="table table-hover table-striped">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Nome</th>
-                                                <th scope="col">Cpf</th>
-                                                <th scope="col">Sexo</th>
-                                                <th scope="col">E-mail</th>
-                                                <th scope="col">Naturalidade</th>
-                                                <th scope="col">Nacionalidade</th>
-                                                <th scope="col">Data de Nascimento</th>
+                                                <th>#</th>
+                                                <th>Nome</th>
+                                                <th>Cpf</th>
+                                                <th>Sexo</th>
+                                                <th>E-mail</th>
+                                                <th>Naturalidade</th>
+                                                <th>Nacionalidade</th>
+                                                <th>Data de Nascimento</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:if="${lstClient.empty}">
+                                                <td colspan="8"> Nenhum cliente registrado! </td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="client : ${lstClient}" class="text-center">
+                                                <td><span th:text="${client.clientId}"></span></td>
+                                                <td><span th:text="${client.name}"></span></td>
+                                                <td><span th:text="${client.cpf}"></span></td>
+                                                <td><span th:text="${client.sex.sex}"></span></td>
+
+                                                <td><span th:text="${client.email}"></span></td>
+                                                <td><span th:text="${client.naturality}"></span></td>
+                                                <td><span th:text="${client.nacionality}"></span></td>
+                                                <td><span
+                                                        th:text="${#temporals.format(client.dtBirthday, 'dd/MM/yyyy')}"></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

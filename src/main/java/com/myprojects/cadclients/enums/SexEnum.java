@@ -6,8 +6,7 @@ import java.util.Collection;
 public enum SexEnum {
 
     M(1, "Male", "M"),
-    F(2, "Female", "F"),
-    I(3, "Intersex", "I");
+    F(2, "Female", "F");
 
     private final int id;
     private final String sex;
@@ -23,7 +22,7 @@ public enum SexEnum {
         return id;
     }
 
-    public String getsex() {
+    public String getSex() {
         return sex;
     }
 

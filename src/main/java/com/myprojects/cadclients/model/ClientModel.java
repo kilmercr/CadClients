@@ -15,11 +15,15 @@ import javax.persistence.Table;
 
 import com.myprojects.cadclients.enums.SexEnum;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "TB_CLIENT")
 public class ClientModel implements Serializable {

@@ -3,8 +3,7 @@ package com.myprojects.cadclients.controller;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +32,7 @@ public class HomeController {
     public ModelAndView cadastroClient() {
         ModelAndView model = new ModelAndView("cadclient");
 
-        List<ClientModel> lstClient = new ArrayList<>();
+        Collection<ClientModel> lstClient = clientService.findAll();
         lstClient.add(ClientModel.builder().clientId(1L).cpf("012.345.678-90").name("Client no. 1").sex(SexEnum.F)
                 .email("client1@tst.com.br").naturality("Curitiba").nacionality("Brasil")
                 .dtBirthday(LocalDate.now(ZoneId.systemDefault()).minusYears(30L))
