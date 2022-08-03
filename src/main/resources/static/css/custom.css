@@ -192,9 +192,24 @@ label {
     font-weight: 500;
     letter-spacing: 1px;
     padding: 9px 19px;
-    border-radius: 0.25rem;
+    border-radius: .25rem;
     text-transform: uppercase;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+    box-shadow: 0 .125rem .25rem rgb(0 0 0 / 8%);
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.btn-lg {
+    padding: 12px 38px;
+    font-size: .90rem;
+}
+
+.btn-sm {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 6px 15px;
 }
 
 .btn-light {
