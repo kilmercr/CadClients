@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
+    <title>Cadastro de Clientes</title>
+    <meta name="description" content="CadClients">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div th:fragment="modal(id)" class="modal fade" th:id="${id}" tabindex="-1" role="dialog"
+        aria-labelledby="modalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Modal Title</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <em class="icon-action-undo"></em>Fechar
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <em class="icon-lock"></em> Registrar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

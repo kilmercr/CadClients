@@ -1,0 +1,66 @@
+<div class="modal-content bg-theme bg-theme1">
+
+    <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Manter Clientes</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <input type="hidden" id="clientIdHidden">
+                <label for="inputNome">Nome</label>
+                <input type="text" class="form-control form-control-rounded" id="inputNome" required
+                    placeholder="Digite o nome">
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-7">
+                    <label for="inputCpf">CPF</label>
+                    <input type="text" class="form-control form-control-rounded" id="inputCpf" required
+                        placeholder="Digite o CPF (Apenas números)" th:onblur="'formatarCpf(this.value)'" maxlength="11"
+                        pattern="[0-9]{11}">
+                </div>
+                <div class="col-lg-3">
+                    <label for="selectSexo">Sexo</label>
+                    <select name="selectSexo" class="form-control form-control-rounded" id="selectSexo">
+                        <option id="optSexoM" value="M">Masculino</option>
+                        <option id="optSexoF" value="F">Feminino</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="inputDtNascimento">Data de Nascimento</label>
+                    <input type="date" class="form-control form-control-rounded" id="inputDtNascimento"
+                        placeholder="Digite a data de nascimento">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-6">
+                    <label for="inputEmail">E-mail</label>
+                    <input type="email" class="form-control form-control-rounded" id="inputEmail"
+                        placeholder="Digite o endereço de E-mail">
+                </div>
+                <div class="col-lg-3">
+                    <label for="inputNaturality">Naturalidade</label>
+                    <input type="text" class="form-control form-control-rounded" id="inputNaturality"
+                        placeholder="Digite a naturalidade">
+                </div>
+                <div class="col-lg-3">
+                    <label for="inputNacionality">Nacionalidade</label>
+                    <input type="text" class="form-control form-control-rounded" id="inputNacionality"
+                        placeholder="Digite a nacionalidade">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <em class="icon-action-undo"></em>Fechar
+        </button>
+        <button type="button" class="btn btn-primary">
+            <em class="icon-lock"></em> Registrar
+        </button>
+    </div>
+</div>

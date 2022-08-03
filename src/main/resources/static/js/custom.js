@@ -15,7 +15,7 @@ function listarClientes() {
     location.href = '/CadClient/listarClientes';
 }
 
-function editarCliente(clientDto) {
+function manterCliente(clientDto) {
 
     clientDto.cpf = clientDto.cpf.replace(/\D/g, '');
     if (clientDto.dtBirthday != null)
@@ -29,7 +29,7 @@ function editarCliente(clientDto) {
     $.ajax({
         type: "POST",
         data: clientDto,
-        url: '/CadClient/editarCliente'
+        url: '/CadClient/manterCliente'
     });
 }
 

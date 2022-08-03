@@ -5,16 +5,11 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Collection;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.myprojects.cadclients.dtos.ClientDto;
 import com.myprojects.cadclients.enums.SexEnum;
 import com.myprojects.cadclients.model.ClientModel;
 import com.myprojects.cadclients.service.ClientService;
@@ -55,15 +50,9 @@ public class HomeController {
         return model;
     }
 
-    @GetMapping("/cadastrarCliente")
-    public ModelAndView cadastrarCliente() {
-        return new ModelAndView("cadastrarCliente");
-    }
-
-    @PostMapping("/editarCliente")
-    public ModelAndView editarCliente(@RequestBody @Valid ClientDto clientDto) {
-        ModelAndView model = new ModelAndView("cadastrarCliente");
-        model.addObject("name", clientDto.getName());
+    @GetMapping("/manterCliente")
+    public ModelAndView manterCliente() {
+        ModelAndView model = new ModelAndView("modalContentManterCliente");
         return model;
     }
 

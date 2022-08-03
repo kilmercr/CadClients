@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="/includes/head :: head">
+<head th:replace="/includes/_head :: head">
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
@@ -64,29 +64,42 @@
                                                     <span th:unless="${client.dtUpdate}">-</span>
                                                 </td>
                                                 <td>
-                                                    <i class="fa fa-edit lnkCursor"
-                                                        th:onclick="editarCliente([[ ${client} ]])"></i>
-                                                    <i class="fa fa-trash-o lnkCursor"
-                                                        th:onclick="deletarCliente([[ ${client.clientId} ]])"></i>
+                                                    <em class="fa fa-edit lnkCursor"
+                                                        th:onclick="editarCliente([[ ${client} ]])"></em>
+                                                    <em class="fa fa-trash-o lnkCursor"
+                                                        th:onclick="deletarCliente([[ ${client.clientId} ]])"></em>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
-                                <button type="button" class="btn btn-light mt-3" th:onclick="criarCliente()">
+                                <button type="button" class="btn btn-light mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#manterCliente">
                                     Registrar Novo Cliente</button>
 
+                                <th:block th:replace="/includes/_modals :: modal('manterCliente')">Modal</th:block>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div th:replace="/includes/footer :: footer"></div>
+            <div th:replace="/includes/_footer :: footer"></div>
         </div>
     </div>
-    <div th:replace="/includes/scripts :: scripts"></div>
+
+    <div th:replace="/includes/_scripts :: scripts"></div>
 </body>
+<script>
+    $(document).ready(function () {
+
+        $('#manterCliente').on('show.bs.modal', function () {
+            $.get("/CadClient/manterCliente", function (data) {
+                $('#manterCliente').find('.modal-content').html(data);
+            })
+        });
+    });
+</script>
 
 </html>

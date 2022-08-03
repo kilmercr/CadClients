@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="/includes/head :: head">
+<head th:replace="/includes/_head :: head">
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
@@ -25,7 +25,7 @@
                             <div class="position-relative has-icon-right">
                                 <input type="text" id="inputLogin" class="form-control" placeholder="Enter Username">
                                 <div class="form-control-position">
-                                    <i class="icon-user"></i>
+                                    <em class="icon-user"></em>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 <input type="password" id="inputSenha" class="form-control"
                                     placeholder="Entre com a sua senha">
                                 <div class="form-control-position">
-                                    <i class="icon-lock"></i>
+                                    <em class="icon-lock"></em>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div th:replace="/includes/scripts :: scripts"></div>
+    <div th:replace="/includes/_scripts :: scripts"></div>
 
 </body>
 
