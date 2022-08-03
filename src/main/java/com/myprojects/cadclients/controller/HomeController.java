@@ -50,10 +50,9 @@ public class HomeController {
         return model;
     }
 
-    @GetMapping("/manterCliente")
-    public ModelAndView manterCliente() {
-        ModelAndView model = new ModelAndView("modalContentManterCliente");
-        return model;
+    @GetMapping("/exibirModalCliente")
+    public ModelAndView exibirModalCliente() {
+        return new ModelAndView("modalContentManterCliente");
     }
 
 }

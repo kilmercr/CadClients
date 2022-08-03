@@ -23,7 +23,7 @@ public class WebSecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers("/",
-                        "/listarClientes", "/manterCliente",
+                        "/listarClientes", "/exibirModalCliente", "/manterCliente",
                         "/js/**",
                         "/css/**",
                         "/img/**",
