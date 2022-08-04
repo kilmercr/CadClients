@@ -17,7 +17,7 @@
                 <div class="col-lg-7">
                     <label for="inputCpf">CPF</label>
                     <input type="text" class="form-control form-control-rounded" id="inputCpf" required
-                        placeholder="Digite o CPF (Apenas números)" th:onblur="'formatarCpf(this.value)'" maxlength="11"
+                        placeholder="Digite o CPF (Apenas números)" th:onblur="'limparCpf(this.value)'" maxlength="11"
                         pattern="[0-9]{11}">
                 </div>
                 <div class="col-lg-3">

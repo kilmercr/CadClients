@@ -3,6 +3,22 @@
  * Geral
  */
 
+function processando() {
+    $.blockUI({
+        message: '<img src="/CadClient/img/busy.gif" /> &nbsp; Processando...',
+        baseZ: 1080,
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            color: '#fff'
+        }
+    });
+}
+
 function urlSource() {
     window.open("https://github.com/kilmercr/CadClients", "_new");
 }
@@ -76,17 +92,34 @@ function manterCliente() {
         nacionality: nacionality
     };
 
-    let url;
-    let httpType;
+    let url = '/CadClient/rest/clients';
+    let httpType = 'POST';
     if (clientId !== undefined && clientId != null && clientId != "") {
-        url = '/CadClient/rest/clients/' + clientId;
+        url += '/' + clientId;
         httpType = 'PUT';
-    } else {
-        url = '/CadClient/rest/clients';
-        httpType = 'POST';
     }
 
     console.log(clientDto, url, httpType);
+
+    processando();
+    $.ajax({
+        type: httpType,
+        url: url,
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(clientDto),
+        success: function (response) {
+
+            setTimeout($.unblockUI, 400);
+            console.log(response);
+            listarClientes();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            setTimeout($.unblockUI, 100);
+            console.log(jqXHR.status, textStatus, errorThrown);
+        }
+    });
+
     $('#modalManterCliente').modal('hide');
     $('#modalManterCliente').find('.modal-body').html('');
 }
@@ -95,9 +128,19 @@ function deletarCliente(clientId) {
     console.log('O cliente, com id [ ' + clientId + ' ], será removido!');
 }
 
-function formatarCpf(valor) {
+function limparCpf(valor) {
     const cpf = valor.replace(/\D/g, '');
     $("#inputCpf").val(cpf);
+}
+
+function formatCnpjCpf(value) {
+    const cnpjCpf = value.replace(/\D/g, '');
+
+    if (cnpjCpf.length === 11) {
+        return cnpjCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3-\$4");
+    }
+
+    return cnpjCpf.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "\$1.\$2.\$3/\$4-\$5");
 }
 
 function validarEmail(email) {
