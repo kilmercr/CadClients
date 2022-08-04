@@ -3,7 +3,9 @@ TRUNCATE TABLE `TB_ROLE`;
 TRUNCATE TABLE `TB_USERS_ROLES`;
 TRUNCATE TABLE `TB_CLIENT`;
 
+-- admin, admin123
 INSERT INTO `TB_USER` (username, password) VALUES('admin', '$2a$10$9/Sj7fzfbcfT/2i3UNNdMuHQr01WPBtQyR.bB09WP3ZU6YxIVMRsG');
+-- user, user123
 INSERT INTO `TB_USER` (username, password) VALUES('user', '$2a$10$L.AXNeXq5kV1YwrYAQqWKeTTBJCYc5PSfXmVRmzgGHDc1rT6cBq3y');
 
 INSERT INTO `TB_ROLE` (role_name) VALUES('ROLE_ADMIN');
