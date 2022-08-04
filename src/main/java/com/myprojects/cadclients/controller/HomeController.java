@@ -24,13 +24,15 @@ public class HomeController {
 
     private final ClientService clientService;
 
-    @GetMapping(value = { "/login", "/index", "/" })
+    @GetMapping({"/login", "/index", "/"})
     public ModelAndView index() {
+
         return new ModelAndView("index");
     }
 
     @GetMapping("/listarClientes")
     public ModelAndView listarClientes() {
+
         ModelAndView model = new ModelAndView("listarClientes");
 
         Collection<ClientModel> lstClient = clientService.findAll();
@@ -52,6 +54,7 @@ public class HomeController {
 
     @GetMapping("/exibirModalCliente")
     public ModelAndView exibirModalCliente() {
+
         return new ModelAndView("modalContentManterCliente");
     }
 

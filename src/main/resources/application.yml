@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: "/CadClient"
 spring:
+  thymeleaf:
+    cache: false
   datasource:
     url: jdbc:h2:mem:mydb;MODE=MySQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE
     username: dbuser

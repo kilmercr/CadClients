@@ -14,7 +14,7 @@
 	<artifactId>CadClients</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>cadclients</name>
+	<name>CadClients</name>
 	<description>A Client management project with Spring Boot</description>
 
 	<properties>
