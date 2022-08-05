@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: "/CadClient"
+    context-path: "/CadClients"
 spring:
   thymeleaf:
     cache: false

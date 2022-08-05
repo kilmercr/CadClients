@@ -1,11 +1,11 @@
 /**
- * CadClient - Javascript
+ * CadClients - Javascript
  * Geral
  */
 
 function processando() {
     $.blockUI({
-        message: '<img src="/CadClient/img/busy.gif" /> &nbsp; Processando...',
+        message: '<img src="/CadClients/img/busy.gif" /> &nbsp; Processando...',
         baseZ: 1080,
         css: {
             border: 'none',
@@ -24,11 +24,11 @@ function urlSource() {
 }
 
 function criarCliente() {
-    location.href = '/CadClient/cadastrarCliente';
+    location.href = '/CadClients/cadastrarCliente';
 }
 
 function listarClientes() {
-    location.href = '/CadClient/listarClientes';
+    location.href = '/CadClients/listarClientes';
 }
 
 function editarCliente(clientDto) {
@@ -92,7 +92,7 @@ function manterCliente() {
         nacionality: nacionality
     };
 
-    let url = '/CadClient/rest/clients';
+    let url = '/CadClients/rest/clients';
     let httpType = 'POST';
     if (clientId !== undefined && clientId != null && clientId != "") {
         url += '/' + clientId;
@@ -130,7 +130,7 @@ function deletarCliente(clientId) {
     processando();
     $.ajax({
         type: 'DELETE',
-        url: '/CadClient/rest/clients/' + clientId,
+        url: '/CadClients/rest/clients/' + clientId,
         contentType: 'application/json',
         success: function (response) {
 
