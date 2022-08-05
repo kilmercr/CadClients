@@ -41,7 +41,7 @@ public class HomeController {
 
         Collection<ClientModel> lstClient = clientService.findAll();
         if (!lstClient.isEmpty())
-            lstClient.stream().forEach(c -> c.setCpfFormatado(StringUtils.formatCPF(c.getCpf())));
+            lstClient.forEach(c -> c.setCpfFormatado(StringUtils.formatCPF(c.getCpf())));
 
         model.addObject("lstClient", lstClient);
         return model;
