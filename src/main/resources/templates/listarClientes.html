@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="/includes/_head :: head">
+<head th:replace="includes/_head :: head">
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
@@ -89,7 +89,7 @@
                                     <a th:href="@{/logout}" style="color: #fff;">Efetuar Logout</a>
                                 </span>
 
-                                <th:block th:replace="/includes/_modals :: modal('modalManterCliente')"></th:block>
+                                <th:block th:replace="includes/_modals :: modal('modalManterCliente')"></th:block>
                             </div>
                         </div>
                     </div>
@@ -98,8 +98,8 @@
         </div>
     </div>
 
-    <div th:replace="/includes/_footer :: footer"></div>
-    <div th:replace="/includes/_scripts :: scripts"></div>
+    <div th:replace="includes/_footer :: footer"></div>
+    <div th:replace="includes/_scripts :: scripts"></div>
 </body>
 <script>
     $(document).ready(function () {
