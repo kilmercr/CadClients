@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Collection;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,17 +20,24 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class HomeController {
 
     private final ClientService clientService;
 
-    @GetMapping({"/login", "/index", "/"})
+    @GetMapping({ "/index", "/" })
     public ModelAndView index() {
 
         return new ModelAndView("index");
     }
 
+    @GetMapping("/login")
+    public ModelAndView login() {
+
+        return new ModelAndView("login");
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("/listarClientes")
     public ModelAndView listarClientes() {
 

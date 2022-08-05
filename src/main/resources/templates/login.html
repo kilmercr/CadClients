@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/includes/_head :: head">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
+    <title>Cadastro de Clientes</title>
+    <meta name="description" content="CadClients">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <div>
+
+        <div class="card card-authentication mx-auto my-5">
+            <div class="card-body">
+                <div class="p-2">
+                    <div class="card-title text-uppercase text-center py-3">Realizar Login</div>
+
+                    <form method="POST" th:action="@{/login}">
+                        <div class="form-group">
+                            <label for="username">Login</label>
+                            <div class="position-relative has-icon-right">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="Enter Username">
+                                <div class="form-control-position">
+                                    <em class="icon-user"></em>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <div class="position-relative has-icon-right">
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Entre com a sua senha">
+                                <div class="form-control-position">
+                                    <em class="icon-lock"></em>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-light btn-block mt-3">Entrar</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="card-footer text-center py-3">
+                <p class="text-warning mb-0">Voltar para página <a href="/" th:href="@{/}"
+                        style="color: #ffffff;">inicial!</a></p>
+                <p class="text-warning mb-0">Clique aqui para ver a <a th:onclick="urlSource()" class="lnkCursor"
+                        style="color: #ffffff;">URL</a> do código fonte!</p>
+            </div>
+        </div>
+    </div>
+    <div th:replace="/includes/_scripts :: scripts"></div>
+
+</body>
+
+</html>

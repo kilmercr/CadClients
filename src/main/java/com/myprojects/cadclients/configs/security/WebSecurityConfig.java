@@ -22,8 +22,7 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers("/",
-                        "/listarClientes", "/exibirModalCliente", "/rest/**",
+                .antMatchers("/", "/exibirModalCliente", "/rest/**",
                         "/js/**",
                         "/css/**",
                         "/img/**",
@@ -33,7 +32,7 @@ public class WebSecurityConfig {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/")
+                .loginPage("/login")
                 .permitAll();
 
         return http.build();

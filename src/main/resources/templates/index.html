@@ -13,47 +13,14 @@
 
 <body class="bg-theme bg-theme1">
 
-    <div>
-
-        <div class="card card-authentication mx-auto my-5">
-            <div class="card-body">
-                <div class="p-2">
-                    <div class="card-title text-uppercase text-center py-3">Realizar Login</div>
-                    <form method="POST" th:action="@{/}">
-                        <div class="form-group">
-                            <label for="inputLogin">Login</label>
-                            <div class="position-relative has-icon-right">
-                                <input type="text" id="inputLogin" class="form-control" placeholder="Enter Username">
-                                <div class="form-control-position">
-                                    <em class="icon-user"></em>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputSenha">Senha</label>
-                            <div class="position-relative has-icon-right">
-                                <input type="password" id="inputSenha" class="form-control"
-                                    placeholder="Entre com a sua senha">
-                                <div class="form-control-position">
-                                    <em class="icon-lock"></em>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-light btn-block mt-3">Entrar</button>
-
-                    </form>
-                </div>
-            </div>
-            <div class="card-footer text-center py-3">
-                <p class="text-warning mb-0">Clique aqui para ver a <a th:onclick="urlSource()" class="lnkCursor"
-                        style="color: #ffffff;">URL</a> do código fonte!</p>
-            </div>
-        </div>
+    <div class="container">
+        <h2>Olá, Seja muito bem vindo!</h1>
+            <ul>
+                <li>Veja a lista de <a href="/listarClientes" th:href="@{/listarClientes}">clientes!</a></li>
+            </ul>
     </div>
-    <div th:replace="/includes/_scripts :: scripts"></div>
 
+    <div th:replace="/includes/_scripts :: scripts"></div>
 </body>
 
 </html>
