@@ -62,6 +62,9 @@
                                                     <span th:unless="${client.dtUpdate}">-</span>
                                                 </td>
                                                 <td>
+                                                    <div sec:authorize="hasRole('ROLE_USER')">
+                                                        <em>-</em>
+                                                    </div>
                                                     <div sec:authorize="hasRole('ROLE_ADMIN')">
                                                         <em class="fa fa-edit lnkCursor"
                                                             th:onclick="editarCliente([[ ${client} ]]);"></em>

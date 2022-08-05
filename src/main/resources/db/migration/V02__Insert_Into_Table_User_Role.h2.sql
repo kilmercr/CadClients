@@ -12,7 +12,6 @@ INSERT INTO `TB_ROLE` (role_name) VALUES ('ROLE_ADMIN');
 INSERT INTO `TB_ROLE` (role_name) VALUES ('ROLE_USER');
 
 INSERT INTO `TB_USERS_ROLES` (user_id, role_id) VALUES (1, 1);
-INSERT INTO `TB_USERS_ROLES` (user_id, role_id) VALUES (1, 2);
 INSERT INTO `TB_USERS_ROLES` (user_id, role_id) VALUES (2, 2);
 
 INSERT INTO `TB_CLIENT` (cpf, name, sex, email, naturality, nacionality, dt_birthday, dt_create) 
