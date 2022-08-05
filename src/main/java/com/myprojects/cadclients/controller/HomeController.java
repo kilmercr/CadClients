@@ -47,6 +47,7 @@ public class HomeController {
         return model;
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("/exibirModalCliente")
     public ModelAndView exibirModalCliente() {
 
