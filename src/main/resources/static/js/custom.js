@@ -23,10 +23,6 @@ function urlSource() {
     window.open("https://github.com/kilmercr/CadClients", "_new");
 }
 
-function criarCliente() {
-    location.href = '/CadClients/cadastrarCliente';
-}
-
 function listarClientes() {
     location.href = '/CadClients/listarClientes';
 }
