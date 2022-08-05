@@ -125,7 +125,24 @@ function manterCliente() {
 }
 
 function deletarCliente(clientId) {
+
     console.log('O cliente, com id [ ' + clientId + ' ], será removido!');
+    processando();
+    $.ajax({
+        type: 'DELETE',
+        url: '/CadClient/rest/clients/' + clientId,
+        contentType: 'application/json',
+        success: function (response) {
+
+            setTimeout($.unblockUI, 100);
+            console.log(response);
+            listarClientes();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            setTimeout($.unblockUI, 100);
+            console.log(jqXHR.status, textStatus, errorThrown);
+        }
+    });
 }
 
 function limparCpf(valor) {

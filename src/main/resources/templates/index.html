@@ -12,12 +12,15 @@
 </head>
 
 <body class="bg-theme bg-theme1">
-
-    <div class="container">
-        <h2>Olá, Seja muito bem vindo!</h1>
-            <ul>
-                <li>Veja a lista de <a href="/listarClientes" th:href="@{/listarClientes}">clientes!</a></li>
-            </ul>
+    <div id="wrapper">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <h2>Olá, Seja muito bem vindo!</h2>
+                <ul>
+                    <li>Veja a lista de <a href="/listarClientes" th:href="@{/listarClientes}">clientes!</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div th:replace="/includes/_scripts :: scripts"></div>
