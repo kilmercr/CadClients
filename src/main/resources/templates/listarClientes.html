@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="/includes/_head :: head">
 
@@ -24,59 +24,67 @@
                                 <h5 class="card-title">Tabela de clientes</h5>
                                 <div class="table-responsive">
                                     <table aria-describedby="Tabela de Clientes" class="table table-hover table-striped"
-                                        id="tbClients">
+                                           id="tbClients">
                                         <thead class="text-center">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nome</th>
-                                                <th>Cpf</th>
-                                                <th>Sexo</th>
-                                                <th>E-mail</th>
-                                                <th>Naturalidade</th>
-                                                <th>Nacionalidade</th>
-                                                <th>Data de Nascimento</th>
-                                                <th>Data de Registro</th>
-                                                <th>Data de Alteração</th>
-                                                <th>Ações</th>
-                                            </tr>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nome</th>
+                                            <th>Cpf</th>
+                                            <th>Sexo</th>
+                                            <th>E-mail</th>
+                                            <th>Naturalidade</th>
+                                            <th>Nacionalidade</th>
+                                            <th>Data de Nascimento</th>
+                                            <th>Data de Registro</th>
+                                            <th>Data de Alteração</th>
+                                            <th>Ações</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:if="${lstClient.empty}">
-                                                <td colspan="8"> Nenhum cliente registrado! </td>
-                                            </tr>
-                                            <tr th:each="client : ${lstClient}" class="text-center">
-                                                <td><span th:text="${client.clientId}"></span></td>
-                                                <td><span th:text="${client.name}"></span></td>
-                                                <td><span th:text="${client.cpfFormatado}"></span></td>
-                                                <td><span th:text="${client.sex.sex}"></span></td>
+                                        <tr th:if="${lstClient.empty}">
+                                            <td colspan="8"> Nenhum cliente registrado!</td>
+                                        </tr>
+                                        <tr th:each="client : ${lstClient}" class="text-center">
+                                            <td><span th:text="${client.clientId}"></span></td>
+                                            <td><span th:text="${client.name}"></span></td>
+                                            <td><span th:text="${client.cpfFormatado}"></span></td>
+                                            <td><span th:text="${client.sex.sex}"></span></td>
 
-                                                <td><span th:text="${client.email}"></span></td>
-                                                <td><span th:text="${client.naturality}"></span></td>
-                                                <td><span th:text="${client.nacionality}"></span></td>
-                                                <td><span
-                                                        th:text="${#temporals.format(client.dtBirthday, 'dd/MM/yyyy')}"></span>
-                                                </td>
-                                                <td><span
-                                                        th:text="${#temporals.format(client.dtCreate, 'dd/MM/yyyy HH:mm:ss')}"></span>
-                                                </td>
-                                                <td><span th:if="${client.dtUpdate}"
-                                                        th:text="${#temporals.format(client.dtUpdate, 'dd/MM/yyyy HH:mm:ss')}"></span>
-                                                    <span th:unless="${client.dtUpdate}">-</span>
-                                                </td>
-                                                <td>
+                                            <td><span th:text="${client.email}"></span></td>
+                                            <td><span th:text="${client.naturality}"></span></td>
+                                            <td><span th:text="${client.nacionality}"></span></td>
+                                            <td><span
+                                                    th:text="${#temporals.format(client.dtBirthday, 'dd/MM/yyyy')}"></span>
+                                            </td>
+                                            <td><span
+                                                    th:text="${#temporals.format(client.dtCreate, 'dd/MM/yyyy HH:mm:ss')}"></span>
+                                            </td>
+                                            <td><span th:if="${client.dtUpdate}"
+                                                      th:text="${#temporals.format(client.dtUpdate, 'dd/MM/yyyy HH:mm:ss')}"></span>
+                                                <span th:unless="${client.dtUpdate}">-</span>
+                                            </td>
+                                            <td>
+                                                <div sec:authorize="hasRole('ROLE_ADMIN')">
                                                     <em class="fa fa-edit lnkCursor"
                                                         th:onclick="editarCliente([[ ${client} ]])"></em>
                                                     <em class="fa fa-trash-o lnkCursor"
                                                         th:onclick="deletarCliente([[ ${client.clientId} ]])"></em>
-                                                </td>
-                                            </tr>
+                                                </div>
+                                                <div sec:authorize="hasRole('ROLE_USER')">
+                                                    <em>-</em>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
-                                <button type="button" class="btn btn-light mt-3" data-bs-toggle="modal"
-                                    data-bs-target="#modalManterCliente">
-                                    Registrar Novo Cliente</button>
+                                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <button type="button" class="btn btn-light mt-3" data-bs-toggle="modal"
+                                            data-bs-target="#modalManterCliente">
+                                        Registrar Novo Cliente
+                                    </button>
+                                </div>
 
                                 <th:block th:replace="/includes/_modals :: modal('modalManterCliente')"></th:block>
                             </div>
