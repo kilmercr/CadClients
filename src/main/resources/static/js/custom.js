@@ -95,8 +95,6 @@ function manterCliente() {
         httpType = 'PUT';
     }
 
-    console.log(clientDto, url, httpType);
-
     processando();
     $.ajax({
         type: httpType,
@@ -107,12 +105,11 @@ function manterCliente() {
         success: function (response) {
 
             setTimeout($.unblockUI, 400);
-            console.log(response);
             listarClientes();
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            setTimeout($.unblockUI, 100);
             console.log(jqXHR.status, textStatus, errorThrown);
+            setTimeout($.unblockUI, 100);
         }
     });
 
@@ -122,7 +119,6 @@ function manterCliente() {
 
 function deletarCliente(clientId) {
 
-    console.log('O cliente, com id [ ' + clientId + ' ], será removido!');
     processando();
     $.ajax({
         type: 'DELETE',
@@ -135,8 +131,8 @@ function deletarCliente(clientId) {
             listarClientes();
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            setTimeout($.unblockUI, 100);
             console.log(jqXHR.status, textStatus, errorThrown);
+            setTimeout($.unblockUI, 100);
         }
     });
 }
