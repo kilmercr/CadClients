@@ -5,7 +5,7 @@
 
 function processando() {
     $.blockUI({
-        message: '<img src="/CadClients/img/busy.gif" /> &nbsp; Processando...',
+        message: '<img src="/img/busy.gif" /> &nbsp; Processando...',
         baseZ: 1080,
         css: {
             border: 'none',
@@ -24,7 +24,7 @@ function urlSource() {
 }
 
 function listarClientes() {
-    location.href = '/CadClients/listarClientes';
+    location.href = '/listarClientes';
 }
 
 function editarCliente(clientDto) {
@@ -88,7 +88,7 @@ function manterCliente() {
         nacionality: nacionality
     };
 
-    let url = '/CadClients/rest/clients';
+    let url = '/rest/clients';
     let httpType = 'POST';
     if (clientId !== undefined && clientId != null && clientId != "") {
         url += '/' + clientId;
@@ -126,7 +126,7 @@ function deletarCliente(clientId) {
     processando();
     $.ajax({
         type: 'DELETE',
-        url: '/CadClients/rest/clients/' + clientId,
+        url: '/rest/clients/' + clientId,
         contentType: 'application/json',
         success: function (response) {
 
