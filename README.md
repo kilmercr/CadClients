@@ -15,8 +15,9 @@ Este projeto utiliza as seguintes tecnologias:
 * [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#web.servlet.spring-mvc.template-engines)
 * [Lombok](https://projectlombok.org/)
 * [H2 Database](https://www.h2database.com/html/main.html)
+* [Swagger with Springdoc OpenApi](https://springdoc.org/)
 
-## Informações para execução da aplicação
+## Informações de Usuário e Perfil
 
 - Usuários:
     * Login: admin, Senha: admin123
@@ -26,22 +27,29 @@ Este projeto utiliza as seguintes tecnologias:
     * ADMIN: Acesso a todos os métodos Http (Get, Post, Delete, Update)
     * USER: Acesso restrito apenas aos métodos Get do Http
 
-- Execução dos testes via Postman:
+## Informações para execução dos End-Points da aplicação, via SWAGGER
 
-    - Para todas as opções, usar 'Basic Auth' como "Autorization" passando um dos 2 usuários citados acima.
-    (Obs.: Atentar-se a regras de autorização de usuário/perfil descritas acima!)
+- É necessário inicializar a aplicação e digitar a seguinte URL em seu browser.
+    http://localhost:8090/swagger-ui.html
+
+## Informações para execução dos End-Points da aplicação, via POSTMAN
+
+- Para todas as opções, usar 'Basic Auth' como "Autorization" passando um dos 2 usuários citados acima.
+  (Obs.: Atentar-se a regras de autorização de usuário/perfil descritas acima!)
+
+- Execução:
 
     * Buscar todos os clientes
         - Método HTTP: GET
-        - URL: localhost:8080/CadClient/rest/clients
+        - URL: localhost:8080/rest/clients
 
     * Buscar determinado cliente
         - Método HTTP: GET
-        - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
+        - URL: localhost:8080/rest/clients/{id do cliente}
 
     * Salvar determinado cliente
         - Método HTTP: POST
-        - URL: localhost:8080/CadClient/rest/clients
+        - URL: localhost:8080/rest/clients
         - Body: 
         ```bash
             {
@@ -57,7 +65,7 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Atualizar determinado cliente
         - Método HTTP: PUT
-        - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
+        - URL: localhost:8080/rest/clients/{id do cliente}
         - Body: 
         ```bash
             {
@@ -73,5 +81,5 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Deletar determinado cliente
         - Método HTTP: Delete
-        - URL: localhost:8080/CadClient/rest/clients/{id do cliente}
+        - URL: localhost:8080/rest/clients/{id do cliente}
 
