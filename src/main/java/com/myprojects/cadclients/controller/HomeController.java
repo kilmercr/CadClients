@@ -64,7 +64,7 @@ public class HomeController {
         URI gitHub = new URI("https://github.com/kilmercr/CadClients");
         HttpHeaders header = new HttpHeaders();
         header.setLocation(gitHub);
-        return new ResponseEntity<Object>(header, HttpStatus.SEE_OTHER);
+        return new ResponseEntity<>(header, HttpStatus.SEE_OTHER);
     }
 
 }
