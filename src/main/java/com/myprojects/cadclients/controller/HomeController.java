@@ -1,7 +1,12 @@
 package com.myprojects.cadclients.controller;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,6 +57,14 @@ public class HomeController {
     public ModelAndView exibirModalCliente() {
 
         return new ModelAndView("modalContentManterCliente");
+    }
+
+    @GetMapping("/source")
+    public ResponseEntity<Object> redirectToSourceCode() throws URISyntaxException {
+        URI gitHub = new URI("https://github.com/kilmercr/CadClients");
+        HttpHeaders header = new HttpHeaders();
+        header.setLocation(gitHub);
+        return new ResponseEntity<Object>(header, HttpStatus.SEE_OTHER);
     }
 
 }

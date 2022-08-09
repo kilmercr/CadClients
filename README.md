@@ -27,15 +27,17 @@ Este projeto utiliza as seguintes tecnologias:
     * ADMIN: Acesso a todos os métodos Http (Get, Post, Delete, Update)
     * USER: Acesso restrito apenas aos métodos Get do Http
 
-## Informações para execução dos End-Points da aplicação, via SWAGGER
+## Informações para execução dos End-Points da aplicação via SWAGGER.
 
 - É necessário inicializar a aplicação e digitar a seguinte URL em seu browser.
     http://localhost:8090/swagger-ui.html
 
-## Informações para execução dos End-Points da aplicação, via POSTMAN
+## Informações para execução dos End-Points de manutenção de Clientes via POSTMAN.
 
 - Para todas as opções, usar 'Basic Auth' como "Autorization" passando um dos 2 usuários citados acima.
-  (Obs.: Atentar-se a regras de autorização de usuário/perfil descritas acima!)
+  * Obs.1: Atentar-se a regras de autorização de usuário/perfil descritas acima!
+  * Obs.2: Os campos CPF, Nome, E-mail e Data de Nascimento possuem validação de conteúdo! 
+           Para utilizar um CPF válido para testes, acesse o site: (https://www.geradorcpf.com/)
 
 - Execução:
 

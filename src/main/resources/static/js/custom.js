@@ -19,10 +19,6 @@ function processando() {
     });
 }
 
-function urlSource() {
-    window.open("https://github.com/kilmercr/CadClients", "_new");
-}
-
 function listarClientes() {
     location.href = '/listarClientes';
 }
@@ -75,8 +71,12 @@ function manterCliente() {
     let nacionality = $("#inputNacionality").val();
 
     let dtNascimento = $("#inputDtNascimento").val();
-    if (dtNascimento !== '')
-        dtNascimento = moment($("#inputDtNascimento").val()).format("DD/MM/YYYY");
+    if (dtNascimento == null || dtNascimento === '') {
+        alert('Data de Nascimento inválida!');
+        $("#inputDtNascimento").focus();
+        return;
+    }
+    dtNascimento = moment($("#inputDtNascimento").val()).format("DD/MM/YYYY");
 
     let clientDto = {
         name: nome,
@@ -102,13 +102,13 @@ function manterCliente() {
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify(clientDto),
-        success: function (response) {
+        success: function () {
 
             setTimeout($.unblockUI, 400);
             listarClientes();
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR.status, textStatus, errorThrown);
+        error: function (jqXHR) {
+            console.log(jqXHR.status, jqXHR.responseJSON.message);
             setTimeout($.unblockUI, 100);
         }
     });
@@ -130,8 +130,8 @@ function deletarCliente(clientId) {
             console.log(response);
             listarClientes();
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR.status, textStatus, errorThrown);
+        error: function (jqXHR) {
+            console.log(jqXHR.status, jqXHR.responseJSON.message);
             setTimeout($.unblockUI, 100);
         }
     });

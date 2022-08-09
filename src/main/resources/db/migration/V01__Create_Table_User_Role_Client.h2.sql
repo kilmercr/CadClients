@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS `TB_CLIENT` (
     `email` VARCHAR(100),
     `naturality` VARCHAR(40),
     `nacionality` VARCHAR(40),
-    `dt_birthday` DATE,
-    `dt_create` TIMESTAMP,
+    `dt_birthday` DATE NOT NULL,
+    `dt_create` TIMESTAMP NOT NULL,
     `dt_update` TIMESTAMP,
     PRIMARY KEY (`client_id`))
 ENGINE = InnoDB;

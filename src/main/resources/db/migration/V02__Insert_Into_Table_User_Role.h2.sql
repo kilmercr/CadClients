@@ -15,6 +15,6 @@ INSERT INTO `TB_USERS_ROLES` (user_id, role_id) VALUES (1, 1);
 INSERT INTO `TB_USERS_ROLES` (user_id, role_id) VALUES (2, 2);
 
 INSERT INTO `TB_CLIENT` (cpf, name, sex, email, naturality, nacionality, dt_birthday, dt_create) 
-    VALUES ('01234567890', 'Client no. 1', 'F', 'client1@tst.com.br', 'Curitiba', 'Brasil', '1980-03-02', CURRENT_TIMESTAMP);
+    VALUES ('33007748534', 'Client no. 1', 'F', 'client1@tst.com.br', 'Curitiba', 'Brasil', '1980-03-02', CURRENT_TIMESTAMP);
 INSERT INTO `TB_CLIENT` (cpf, name, sex, email, naturality, nacionality, dt_birthday, dt_create)  
-    VALUES ('98765432109', 'Client no. 2', 'M', 'client2@tst.com.br', 'Joao Pessoa', 'Brasil', '1978-05-18', CURRENT_TIMESTAMP);
+    VALUES ('91606820516', 'Client no. 2', 'M', 'client2@tst.com.br', 'Joao Pessoa', 'Brasil', '1978-05-18', CURRENT_TIMESTAMP);

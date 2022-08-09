@@ -46,7 +46,10 @@ public class ClientModel implements Serializable {
     private String email;
     private String naturality;
     private String nacionality;
+
+    @Column(nullable = false)
     private LocalDate dtBirthday;
+    @Column(nullable = false)
     private LocalDateTime dtCreate;
     private LocalDateTime dtUpdate;
 
