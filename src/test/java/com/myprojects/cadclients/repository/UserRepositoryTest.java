@@ -1,13 +1,14 @@
 package com.myprojects.cadclients.repository;
 
-import com.myprojects.cadclients.model.UserModel;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import com.myprojects.cadclients.model.UserModel;
 
 @SpringBootTest
 class UserRepositoryTest {
@@ -19,7 +20,7 @@ class UserRepositoryTest {
     void deveRetornarPesquisaPorNomeDoUsuario() {
 
         String username = "admin";
-        Optional<UserModel> userModel = userRepository.findByUsername(username);
-        assertThat(userModel.isPresent()).isTrue();
+        Optional<UserModel> optUM = userRepository.findByUsername(username);
+        assertTrue(optUM.isPresent());
     }
 }
