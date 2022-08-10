@@ -5,16 +5,23 @@ server:
 
 --- # Start - Spring
 spring:
+  output:
+    ansi:
+      enabled: DETECT
+
   thymeleaf:
     cache: false
+
   datasource:
     url: jdbc:h2:mem:mydb;MODE=MySQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE
     username: dbuser
     password: dbuser
     driverClassName: org.h2.Driver
+
   flyway:
     fail-on-missing-locations: false
     locations: classpath:/db/migration
+
   jpa:
     #open-in-view: false
     show-sql: false
@@ -24,6 +31,7 @@ spring:
       ddl-auto: none
     properties:
       hibernate.format_sql : true
+
   h2:
     console:
       path: /h2-console
@@ -44,7 +52,10 @@ logging:
   pattern:
     console: "[%d] [%-5level] [%-40.40logger{39}] : %msg%n"
     file: "[%d] [%-5level] [%-40.40logger{39}] : %msg%n"
-    rolling-file-name: "${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz"
+
+  logback:
+    rollingpolicy:
+      file-name-pattern: "${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz"
 
   level:
     root: warn
