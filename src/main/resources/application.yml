@@ -1,5 +1,9 @@
+--- #Start - Server
 server:
   port: 8090
+... #End - Server
+
+--- # Start - Spring
 spring:
   thymeleaf:
     cache: false
@@ -12,7 +16,9 @@ spring:
     fail-on-missing-locations: false
     locations: classpath:/db/migration
   jpa:
+    #open-in-view: false
     show-sql: false
+    generate-ddl: false
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
@@ -25,3 +31,28 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+... #End - Spring
+
+--- #Start - Logging with Logback's Library
+logging:
+  file:
+    name: logs/CadClients.log
+    max-size: 15MB
+    max-history: 7
+    total-size-cap: 210MB
+
+  pattern:
+    console: "[%d] [%-5level] [%-40.40logger{39}] : %msg%n"
+    file: "[%d] [%-5level] [%-40.40logger{39}] : %msg%n"
+    rolling-file-name: "${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz"
+
+  level:
+    root: warn
+    com.myprojects.cadclients: info
+    org.springframework: error
+    org.springframework.boot.SpringApplication: info
+    org.hibernate: error
+    #org.hibernate.SQL: debug
+    #org.hibernate.type.descriptor.sql: trace
+    org.apache.tomcat: error
+... #End - Logging
