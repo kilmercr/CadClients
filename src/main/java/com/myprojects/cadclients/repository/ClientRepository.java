@@ -15,6 +15,6 @@ public interface ClientRepository extends JpaRepository<ClientModel, Long> {
 
     Optional<ClientModel> findByName(String name);
 
-    Collection<ClientModel> findByNameLike(String name);
+    Collection<ClientModel> findByNameContaining(String name);
 
 }

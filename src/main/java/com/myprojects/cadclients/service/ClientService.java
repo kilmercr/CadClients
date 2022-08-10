@@ -34,8 +34,8 @@ public class ClientService {
         return clientRepository.findByName(name);
     }
 
-    public Collection<ClientModel> findByNameLike(String name) {
-        return clientRepository.findByNameLike(name);
+    public Collection<ClientModel> findByNameContaining(String name) {
+        return clientRepository.findByNameContaining(name);
     }
 
     @Transactional
