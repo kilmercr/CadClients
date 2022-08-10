@@ -24,8 +24,8 @@ Este projeto utiliza as seguintes tecnologias:
     * Login: user, Senha: user123
 
 - Perfil:
-    * ADMIN: Acesso a todos os métodos Http (Get, Post, Delete, Update)
-    * USER: Acesso restrito apenas aos métodos Get do Http
+    * ADMIN: Acesso a todos os verbos do Http (Get, Post, Delete, Update)
+    * USER: Acesso restrito apenas ao verbo Get do Http
 
 ## Informações para execução dos End-Points da aplicação via SWAGGER.
 
@@ -35,7 +35,7 @@ Este projeto utiliza as seguintes tecnologias:
 ## Informações para execução dos End-Points de manutenção de Clientes via POSTMAN.
 
 - Para todas as opções, usar 'Basic Auth' como "Autorization" passando um dos 2 usuários citados acima.
-  * Obs.1: Atentar-se a regras de autorização de usuário/perfil descritas acima!
+  * Obs.1: Atentar-se as regras de autorização de usuário/perfil descritas acima!
   * Obs.2: Os campos CPF, Nome, E-mail e Data de Nascimento possuem validação de conteúdo! 
            Para utilizar um CPF válido para testes, acesse o site: (https://www.geradorcpf.com/)
 
@@ -43,15 +43,15 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Buscar todos os clientes
         - Método HTTP: GET
-        - URL: localhost:8080/rest/clients
+        - URL: localhost:8090/rest/clients
 
     * Buscar determinado cliente
         - Método HTTP: GET
-        - URL: localhost:8080/rest/clients/{id do cliente}
+        - URL: localhost:8090/rest/clients/{id do cliente}
 
     * Salvar determinado cliente
         - Método HTTP: POST
-        - URL: localhost:8080/rest/clients
+        - URL: localhost:8090/rest/clients
         - Body: 
         ```bash
             {
@@ -67,7 +67,7 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Atualizar determinado cliente
         - Método HTTP: PUT
-        - URL: localhost:8080/rest/clients/{id do cliente}
+        - URL: localhost:8090/rest/clients/{id do cliente}
         - Body: 
         ```bash
             {
@@ -83,5 +83,5 @@ Este projeto utiliza as seguintes tecnologias:
 
     * Deletar determinado cliente
         - Método HTTP: Delete
-        - URL: localhost:8080/rest/clients/{id do cliente}
+        - URL: localhost:8090/rest/clients/{id do cliente}
 
