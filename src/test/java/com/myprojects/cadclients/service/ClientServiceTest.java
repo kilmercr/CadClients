@@ -1,10 +1,6 @@
 package com.myprojects.cadclients.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
@@ -19,7 +15,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.myprojects.cadclients.enums.SexEnum;
-import com.myprojects.cadclients.exceptions.BadRequestException;
 import com.myprojects.cadclients.model.ClientModel;
 import com.myprojects.cadclients.repository.ClientRepository;
 import com.myprojects.cadclients.utils.StringUtils;
@@ -84,26 +79,6 @@ class ClientServiceTest {
 
         ClientModel captureClientModel = clientModelArgumentCaptor.getValue();
         assertThat(captureClientModel).isEqualTo(clientModel);
-    }
-
-    @Test
-    void lancaExceptionQuandoJaExisteUmCpf() {
-
-        ClientModel clientModel = ClientModel.builder().clientId(4L).cpf("33007748534")
-                .cpfFormatado(StringUtils.formatCPF("33007748534")).name("Client no. 4").sex(SexEnum.M)
-                .email("client4@tst.com.br").naturality("Curitiba").nacionality("Brasil")
-                .dtBirthday(LocalDate.now(ZoneId.systemDefault()).minusYears(18L))
-                .dtCreate(LocalDateTime.now(ZoneId.systemDefault())).build();
-
-        given(clientRepository.findByCpf(clientModel.getCpf()).isPresent())
-                .willReturn(true);
-
-        assertThatThrownBy(() -> clientService.save(clientModel))
-                .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining(
-                        "Conflito: Já existe, na base, um cliente com o CPF [ " + clientModel.getCpf() + " ]!");
-
-        verify(clientRepository, never()).save(any());
     }
 
     @Test

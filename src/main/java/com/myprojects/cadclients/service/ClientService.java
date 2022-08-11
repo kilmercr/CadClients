@@ -7,8 +7,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.myprojects.cadclients.exceptions.BadRequestException;
-import com.myprojects.cadclients.exceptions.ClientNotFoundException;
 import com.myprojects.cadclients.model.ClientModel;
 import com.myprojects.cadclients.repository.ClientRepository;
 
@@ -42,25 +40,11 @@ public class ClientService {
 
     @Transactional
     public ClientModel save(ClientModel clientModel) {
-
-        Optional<ClientModel> optionalClientModel = clientRepository.findByCpf(clientModel.getCpf());
-        if (optionalClientModel.isPresent()) {
-            throw new BadRequestException(
-                    "Conflito: Já existe um cliente com o CPF [ " + clientModel.getCpf() + " ]!");
-        }
-
         return clientRepository.save(clientModel);
     }
 
     @Transactional
     public void delete(ClientModel clientModel) {
-
-        Optional<ClientModel> optionalClientModel = clientRepository.findById(clientModel.getClientId());
-        if (!optionalClientModel.isPresent()) {
-            throw new ClientNotFoundException(
-                    "Client, com o id [ " + clientModel.getClientId() + " ], não existe!");
-        }
- 
         clientRepository.delete(clientModel);
     }
 
