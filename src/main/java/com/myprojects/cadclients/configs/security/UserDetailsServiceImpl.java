@@ -2,7 +2,6 @@ package com.myprojects.cadclients.configs.security;
 
 import javax.transaction.Transactional;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.myprojects.cadclients.model.UserModel;
 import com.myprojects.cadclients.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
