@@ -13,13 +13,11 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.test.context.ActiveProfiles;
 
 import com.myprojects.cadclients.service.ClientService;
 
-@ActiveProfiles(value = "test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class CadclientsApplicationTests {
+class CadClientsApplicationTests {
 
     @LocalServerPort
     private int port;
@@ -44,7 +42,9 @@ class CadclientsApplicationTests {
     @Test
     public void statusPaginaInicial() throws Exception {
 
-        ResponseEntity<String> response = testRestTemplate.getForEntity(baseUrl, String.class);
+        ResponseEntity<String> response = testRestTemplate
+                .withBasicAuth("admin", "$2a$10$9/Sj7fzfbcfT/2i3UNNdMuHQr01WPBtQyR.bB09WP3ZU6YxIVMRsG")
+                .getForEntity(baseUrl, String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }

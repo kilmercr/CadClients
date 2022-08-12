@@ -26,4 +26,9 @@ public class HomeControllerTest {
 
         mockMvc.perform(get("/index")).andExpect(status().isOk());
     }
+    @Test
+    void deveCarregarListaDeClientes() throws Exception {
+
+        mockMvc.perform(get("/listarClientes")).andExpect(status().isOk());
+    }
 }
