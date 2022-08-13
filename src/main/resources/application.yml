@@ -5,6 +5,10 @@ server:
 
 --- # Start - Spring
 spring:
+
+  #main:
+  #  banner-mode: log 
+
   output:
     ansi:
       enabled: DETECT
