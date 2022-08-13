@@ -26,21 +26,19 @@ class CadClientsApplicationTests {
 
     @BeforeEach
     void setUp() {
-
         baseUrl += port + "/";
     }
 
 
     @Test
     public void statusPaginaInicial() throws Exception {
-
-        mockMvc.perform(MockMvcRequestBuilders.get(baseUrl).accept(MediaType.ALL)).andExpect(MockMvcResultMatchers.status().isOk());
+        mockMvc.perform(MockMvcRequestBuilders.get(baseUrl).accept(MediaType.ALL))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
     @WithUserDetails(value = "admin")
     public void deveTerAcessoParaTrazerListaDeClientes() throws Exception {
-
         mockMvc.perform(MockMvcRequestBuilders.get(baseUrl + "rest/clients/").accept(MediaType.ALL))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
