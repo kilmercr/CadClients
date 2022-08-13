@@ -1,50 +1,47 @@
 package com.myprojects.cadclients;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithUserDetails;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.myprojects.cadclients.service.ClientService;
-
+@AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class CadClientsApplicationTests {
 
+    @Autowired
+    private MockMvc mockMvc;
+
     @LocalServerPort
     private int port;
-    private static TestRestTemplate testRestTemplate;
     private String baseUrl = "http://localhost:";
-
-    @MockBean
-    private ClientService clientService;
-    @MockBean
-    private SecurityFilterChain filterChain;
-
-    @BeforeAll
-    static void beforeAll() {
-        testRestTemplate = new TestRestTemplate();
-    }
 
     @BeforeEach
     void setUp() {
+
         baseUrl += port + "/";
     }
+
 
     @Test
     public void statusPaginaInicial() throws Exception {
 
-        ResponseEntity<String> response = testRestTemplate
-                .withBasicAuth("admin", "$2a$10$9/Sj7fzfbcfT/2i3UNNdMuHQr01WPBtQyR.bB09WP3ZU6YxIVMRsG")
-                .getForEntity(baseUrl, String.class);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        mockMvc.perform(MockMvcRequestBuilders.get(baseUrl).accept(MediaType.ALL)).andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    @WithUserDetails(value = "admin")
+    public void deveTerAcessoParaTrazerListaDeClientes() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.get(baseUrl + "rest/clients/").accept(MediaType.ALL))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
