@@ -7,7 +7,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import com.myprojects.cadclients.handlers.LoggingAccessDeniedHandler;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -20,8 +23,8 @@ public class WebSecurityConfig {
         http.headers().frameOptions().disable();
 
         http
-                .httpBasic()
-                .and()
+            .httpBasic()
+            .and()
                 .authorizeHttpRequests()
                 .antMatchers("/", "/source",
                         "/js/**",
@@ -34,17 +37,21 @@ public class WebSecurityConfig {
                         "/h2-console/**")
                 .permitAll()
                 .anyRequest().authenticated()
-                .and()
-                .formLogin()
+            .and()
+            .formLogin()
                 .loginPage("/login")
+                .successForwardUrl("/listarClientes")
                 .permitAll()
-                .and()
-                .logout()
+            .and()
+            .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
-                .permitAll();
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            .and()
+            .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler());
 
         return http.build();
     }
@@ -55,4 +62,9 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+
+        return new LoggingAccessDeniedHandler();
+    }
 }

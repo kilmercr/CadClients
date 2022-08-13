@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="includes/_head :: head">
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge; text/html; charset=UTF-8">
-    <title>Cadastro de Clientes</title>
+    <title>Cadastro de Clientes - Acesso Negado</title>
     <meta name="description" content="CadClients">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,15 +15,11 @@
     <div id="wrapper">
         <div class="content-wrapper">
             <div class="container-fluid">
-                <h2>Olá, Seja muito bem vindo!</h2>
-                <ul>
-                    <li>Veja a lista de <a href="/listarClientes" th:href="@{/listarClientes}">clientes!</a></li>
-                </ul>
+                <h2>Acesso Negado</h2>
+                <p><a href="/" th:href="@{/}">Voltar para página Inicial</a></p>
             </div>
         </div>
     </div>
-
-    <div th:replace="includes/_scripts :: scripts"></div>
 </body>
 
 </html>

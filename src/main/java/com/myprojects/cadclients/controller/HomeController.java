@@ -1,5 +1,8 @@
 package com.myprojects.cadclients.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -38,8 +41,14 @@ public class HomeController {
         return new ModelAndView("login");
     }
 
+    @GetMapping("/access-denied")
+    public ModelAndView accessDenied() {
+
+        return new ModelAndView("error/access-denied");
+    }
+
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @GetMapping("/listarClientes")
+    @RequestMapping(value = "/listarClientes", method = { GET, POST })
     public ModelAndView listarClientes() {
 
         ModelAndView model = new ModelAndView("listarClientes");
