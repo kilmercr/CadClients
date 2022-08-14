@@ -1,6 +1,6 @@
 package com.myprojects.cadclients.repository;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +15,6 @@ public interface ClientRepository extends JpaRepository<ClientModel, Long> {
 
     Optional<ClientModel> findByName(String name);
 
-    Collection<ClientModel> findByNameContaining(String name);
+    List<ClientModel> findByNameContaining(String name);
 
 }

@@ -1,6 +1,6 @@
 package com.myprojects.cadclients.service;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public Collection<UserModel> findAll() {
+    public List<UserModel> findAll() {
         return userRepository.findAll();
     }
 

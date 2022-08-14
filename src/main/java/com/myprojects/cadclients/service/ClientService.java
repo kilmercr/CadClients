@@ -1,6 +1,6 @@
 package com.myprojects.cadclients.service;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -18,7 +18,7 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
 
-    public Collection<ClientModel> findAll() {
+    public List<ClientModel> findAll() {
         return clientRepository.findAll();
     }
 
@@ -34,7 +34,7 @@ public class ClientService {
         return clientRepository.findByName(name);
     }
 
-    public Collection<ClientModel> findByNameContaining(String name) {
+    public List<ClientModel> findByNameContaining(String name) {
         return clientRepository.findByNameContaining(name);
     }
 
