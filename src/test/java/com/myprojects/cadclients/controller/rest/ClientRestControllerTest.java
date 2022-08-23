@@ -33,8 +33,8 @@ import com.myprojects.cadclients.model.ClientModel;
 import com.myprojects.cadclients.service.ClientService;
 import com.myprojects.cadclients.utils.StringUtils;
 
-@SpringBootTest
 @AutoConfigureMockMvc
+@SpringBootTest
 class ClientRestControllerTest {
 
     @MockBean

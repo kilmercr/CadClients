@@ -29,7 +29,6 @@ class CadClientsApplicationTests {
         baseUrl += port + "/";
     }
 
-
     @Test
     public void statusPaginaInicial() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(baseUrl).accept(MediaType.ALL))
