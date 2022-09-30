@@ -13,12 +13,14 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.myprojects.cadclients.enums.SexEnum;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Builder
 public class ClientDto implements Serializable {
 
     private static final long serialVersionUID = 1534244992322023678L;
