@@ -11,7 +11,7 @@ import com.myprojects.cadclients.utils.StringUtils;
 
 public class ScenarioFactory {
 
-    public static final String CLIENT_DEFAULT_NAME = "CLIENT_TST_AUTOMAT.";
+    public static final String CLIENT_DEFAULT_NAME = "CLIENT_TST_AUTOMAT";
 
     public static String getTestSufix() {
         return String.valueOf(Date.from(Instant.now()).getTime());

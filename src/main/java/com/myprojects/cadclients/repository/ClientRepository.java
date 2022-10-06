@@ -17,4 +17,5 @@ public interface ClientRepository extends JpaRepository<ClientModel, Long> {
 
     List<ClientModel> findByNameContaining(String name);
 
+    void deleteByNameContainingIgnoreCase(String name);
 }

@@ -24,7 +24,7 @@ public abstract class FeatureBase<R> {
     @Autowired
     protected TestRestTemplate template;
 
-    private String servletPath = "/rest/clients";
+    private String servletPath = "/";
 
     @LocalServerPort
     protected int port;
