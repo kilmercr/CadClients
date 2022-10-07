@@ -1,5 +1,6 @@
 # language: pt
 
+@client_tests
 @list_clients
 Funcionalidade: Listar Clients
 
