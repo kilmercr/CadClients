@@ -24,7 +24,7 @@ Este projeto utiliza as seguintes tecnologias:
     * Login: user, Senha: user123
 
 - Perfil:
-    * ADMIN: Acesso a todos os verbos do Http (Get, Post, Delete, Update)
+    * ADMIN: Acesso aos verbos do Http (Get, Post, Delete, Update)
     * USER: Acesso restrito apenas ao verbo Get do Http
 
 ## Informações para execução dos End-Points da aplicação via SWAGGER.
